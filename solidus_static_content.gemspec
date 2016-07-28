@@ -20,17 +20,16 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'solidus', '>= 1.0'
 
-  s.add_development_dependency 'capybara', '~> 2.2.1'
+  s.add_development_dependency 'capybara', '~> 2.7'
   s.add_development_dependency 'factory_girl', '~> 4.4'
   s.add_development_dependency 'ffaker'
   s.add_development_dependency 'database_cleaner', '1.2.0'
-  s.add_development_dependency 'rspec-rails',  '~> 2.14'
+  s.add_development_dependency 'rspec-rails',  '~> 3.5'
   s.add_development_dependency 'sqlite3', '~> 1.3.8'
-  s.add_development_dependency 'selenium-webdriver'
-  s.add_development_dependency 'poltergeist', '~> 1.5.0'
+  s.add_development_dependency 'poltergeist', '~> 1.10.0'
   s.add_development_dependency 'simplecov', '~> 0.7.1'
   s.add_development_dependency 'coffee-rails', '~> 4.0.0'
-  s.add_development_dependency 'sass-rails', '~> 4.0.0'
-  s.add_development_dependency 'guard-rspec'
+  s.add_development_dependency 'sass-rails', '~> 5.0.2'
   s.add_development_dependency 'pry-rails'
+  s.add_development_dependency 'test-unit'
 end
