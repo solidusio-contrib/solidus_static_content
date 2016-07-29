@@ -6,7 +6,7 @@ feature 'Admin Static Content', js: true do
   context 'when no page exists' do
     background do
       visit spree.admin_path
-      click_link 'Configuration'
+      click_link 'Settings'
       click_link 'Pages'
     end
 
@@ -40,7 +40,7 @@ feature 'Admin Static Content', js: true do
 
     background do
       visit spree.admin_path
-      click_link 'Configuration'
+      click_link 'Settings'
       click_link 'Pages'
     end
 
