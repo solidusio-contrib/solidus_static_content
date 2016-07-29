@@ -1,12 +1,11 @@
 require 'spec_helper'
 
-feature 'Admin Static Content', js: true do
+RSpec.feature 'Admin Static Content', js: true do
   stub_authorization!
 
   context 'when no page exists' do
     background do
       visit spree.admin_path
-      click_link 'Settings'
       click_link 'Pages'
     end
 
@@ -40,7 +39,6 @@ feature 'Admin Static Content', js: true do
 
     background do
       visit spree.admin_path
-      click_link 'Settings'
       click_link 'Pages'
     end
 
