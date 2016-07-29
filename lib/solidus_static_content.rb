@@ -1,6 +1,7 @@
 require 'solidus_core'
 require 'solidus_frontend'
 require 'solidus_backend'
+require 'deface'
 require 'spree_static_content/engine'
 require 'coffee_script'
 require 'sass/rails'
