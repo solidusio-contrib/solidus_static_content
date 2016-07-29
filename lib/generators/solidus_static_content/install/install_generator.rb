@@ -1,4 +1,4 @@
-module SpreeStaticContent
+module SolidusStaticContent
   module Generators
     class InstallGenerator < Rails::Generators::Base
       class_option :auto_run_migrations, type: :boolean, default: false
@@ -8,7 +8,7 @@ module SpreeStaticContent
       end
 
       def add_migrations
-        run 'bundle exec rake railties:install:migrations FROM=spree_static_content'
+        run 'bundle exec rake railties:install:migrations FROM=solidus_static_content'
       end
 
       def run_migrations

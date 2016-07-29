@@ -1,17 +1,16 @@
 require 'spec_helper'
 
-feature 'Admin Static Content', js: true do
+RSpec.feature 'Admin Static Content', js: true do
   stub_authorization!
 
   context 'when no page exists' do
     background do
       visit spree.admin_path
-      click_link 'Configuration'
       click_link 'Pages'
     end
 
     scenario 'can create new page' do
-      expect(page).to have_text 'NO PAGES FOUND, ADD ONE!'
+      expect(page).to have_text 'No Pages found, Add One!'
 
       click_link 'New page'
       expect(page).to have_text 'Static pages'
@@ -40,7 +39,6 @@ feature 'Admin Static Content', js: true do
 
     background do
       visit spree.admin_path
-      click_link 'Configuration'
       click_link 'Pages'
     end
 

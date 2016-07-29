@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Spree::PagesHelper do
+RSpec.describe Spree::PagesHelper, type: :helper do
   context '.render_snippet' do
     it 'return body when page exists' do
       page = create(:page)

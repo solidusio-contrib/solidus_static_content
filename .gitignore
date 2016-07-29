@@ -6,3 +6,4 @@ spec/dummy/
 .rvmrc
 tmp
 coverage
+.bundle
