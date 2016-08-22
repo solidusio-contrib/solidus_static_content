@@ -6,7 +6,13 @@ FactoryGirl.define do
     sequence(:slug) { |n| "/page#{n}" }
 
     trait :with_foreign_link do
-      foreign_link { FFaker::Internet.http_url }
+      foreign_link do
+        if defined?(FFaker)
+          FFaker::Internet.http_url
+        else
+          Faker::Internet.http_url
+        end
+      end
     end
   end
 end
