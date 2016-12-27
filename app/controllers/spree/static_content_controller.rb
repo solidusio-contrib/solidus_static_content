@@ -6,6 +6,7 @@ class Spree::StaticContentController < Spree::StoreController
 
   def show
     @page = Spree::Page.by_store(current_store).visible.find_by_slug!(request.path)
+    @taxonomies = Spree::Taxonomy.includes(root: :children)
   end
 
   private
