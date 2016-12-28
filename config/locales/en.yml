@@ -27,7 +27,7 @@ en:
     stores: Stores
     admin:
       tab:
-        Pages: Pages
+        pages: Pages
     back_to_static_pages_list: "Back to static pages list"
     page: Page
     pages: Pages
