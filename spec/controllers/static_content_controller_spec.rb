@@ -11,21 +11,21 @@ describe Spree::StaticContentController, type: :controller do
     it 'accepts path as root' do
       page = create(:page, slug: '/', stores: [store])
       request.path = page.slug
-      get :show, path: page.slug
+      get :show, params: { path: page.slug }
       expect(response).to be_success
     end
 
     it 'accepts path as string' do
       page = create(:page, slug: 'hello', stores: [store])
       request.path = page.slug
-      get :show, path: page.slug
+      get :show, params: { path: page.slug }
       expect(response).to be_success
     end
 
     it 'accepts path as nested' do
       page = create(:page, slug: 'aa/bb/cc', stores: [store])
       request.path = page.slug
-      get :show, path: page.slug
+      get :show, params: { path: page.slug }
       expect(response).to be_success
     end
 
