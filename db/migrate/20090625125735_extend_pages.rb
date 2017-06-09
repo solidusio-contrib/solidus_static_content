@@ -1,4 +1,4 @@
-class ExtendPages < ActiveRecord::Migration
+class ExtendPages < SolidusSupport::Migration[4.2]
   class Page < ActiveRecord::Base
   end
 

@@ -1,4 +1,4 @@
-class AddShowInSidebarOptionToPages < ActiveRecord::Migration
+class AddShowInSidebarOptionToPages < SolidusSupport::Migration[4.2]
   def self.up
     add_column :spree_pages, :show_in_sidebar, :boolean, :default=> false, :null=>false
   end

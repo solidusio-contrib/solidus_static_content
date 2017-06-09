@@ -1,4 +1,4 @@
-class AddPagesStores < ActiveRecord::Migration
+class AddPagesStores < SolidusSupport::Migration[4.2]
 
   def change
     create_table :spree_pages_stores, :id => false do |t|

@@ -1,4 +1,4 @@
-class AddLayoutToPages < ActiveRecord::Migration
+class AddLayoutToPages < SolidusSupport::Migration[4.2]
   def self.up
     add_column :spree_pages, :layout, :string
   end

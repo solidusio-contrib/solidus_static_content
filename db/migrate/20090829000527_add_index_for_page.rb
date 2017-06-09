@@ -1,4 +1,4 @@
-class AddIndexForPage < ActiveRecord::Migration
+class AddIndexForPage < SolidusSupport::Migration[4.2]
   def self.up
     add_index(:spree_pages, :slug)
   end

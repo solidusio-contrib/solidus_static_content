@@ -1,4 +1,4 @@
-class AddRenderAsPartialForLayoutForSpreePages < ActiveRecord::Migration
+class AddRenderAsPartialForLayoutForSpreePages < SolidusSupport::Migration[4.2]
   def up
     unless column_exists? :spree_pages, :render_layout_as_partial
       add_column :spree_pages, :render_layout_as_partial, :boolean, :default => false
