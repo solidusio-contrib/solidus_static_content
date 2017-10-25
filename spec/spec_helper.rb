@@ -25,7 +25,7 @@ require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/authorization_helpers'
 require 'spree/testing_support/capybara_ext'
 
-FactoryGirl.find_definitions
+FactoryBot.find_definitions
 
 RSpec.configure do |config|
   config.mock_with :rspec
@@ -33,7 +33,7 @@ RSpec.configure do |config|
 
   config.include Spree::TestingSupport::ControllerRequests, type: :controller
   config.include Spree::TestingSupport::UrlHelpers
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 
   config.extend Spree::TestingSupport::AuthorizationHelpers::Request, type: :feature
 

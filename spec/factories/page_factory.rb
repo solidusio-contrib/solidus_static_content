@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :page, class: Spree::Page do
     title { generate(:random_string) }
     body  { generate(:random_description) }
