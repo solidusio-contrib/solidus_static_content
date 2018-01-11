@@ -10,7 +10,7 @@ else
   gem "rails", "~> 4.2.7"
 end
 
-gem 'pg'
+gem 'pg', '~> 0.21'
 gem 'mysql2'
 
 gemspec
