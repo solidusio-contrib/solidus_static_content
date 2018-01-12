@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe Spree::StaticContentController, type: :controller do
-  before do
-    controller.stub spree_current_user: nil
-  end
-
   let!(:store) { create(:store, default: true) }
 
   context '#show' do
