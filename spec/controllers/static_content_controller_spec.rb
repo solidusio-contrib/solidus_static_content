@@ -30,8 +30,9 @@ describe Spree::StaticContentController, type: :controller do
     end
 
     it 'respond with a 404 when no page exists' do
-      get :show
-      expect(response.response_code).to eq(404)
+      expect {
+        get :show
+      }.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 end

@@ -29,10 +29,11 @@ feature 'Static Content Page', js: true do
       expect(page).to have_text 'Root Page Test'
     end
 
-    scenario 'is limited within its own constraints' do
+    scenario 'is limited within its own constraints', js: false do
       create(:page, slug: '/t/categories/page3', title: 'Constraint Test', stores: [store])
-      visit '/t/categories/page3'
-      expect(page).not_to have_text 'Constraint Test'
+      expect {
+        visit '/t/categories/page3'
+      }.to raise_error(ActiveRecord::RecordNotFound)
     end
 
     scenario 'fetch correct page' do
