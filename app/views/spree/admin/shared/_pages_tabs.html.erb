@@ -1,0 +1,9 @@
+<% content_for :tabs do %>
+  <nav>
+    <ul class='tabs' data-hook='admin_settings_pages_tabs'>
+      <% if can?(:display, Spree::Page) %>
+        <%= settings_tab_item plural_resource_name(Spree::Page), spree.admin_pages_path %>
+      <% end %>
+    </ul>
+  </nav>
+<% end %>

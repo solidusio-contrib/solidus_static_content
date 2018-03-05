@@ -1,18 +1,40 @@
-<%= render 'spree/admin/shared/configuration_menu' %>
+<% if SolidusSupport.solidus_gem_version > Gem::Version.new('1.3.x') %>
+  <%= render 'spree/admin/shared/pages_tabs' %>
 
-<% content_for :page_title do %>
-   <%= Spree.t("static_content.static_pages") %> <i class="icon-arrow-right"></i> <%= Spree.t("static_content.editing_page") %> "<%= @page.title%>"
+  <% admin_breadcrumb(Spree.t('settings')) %>
+  <% admin_breadcrumb(link_to plural_resource_name(Spree::Page), spree.admin_pages_path) %>
+  <% admin_breadcrumb(@page.title) %>
+
+  <% content_for :page_actions do %>
+  <% end %>
+<% else %>
+  <%= render partial: 'spree/admin/shared/configuration_menu' %>
+
+  <% content_for :page_title do %>
+    <%= Spree.t('static_content.editing_shipping_category') %>
+  <% end %>
+
+  <% content_for :page_actions do %>
+    <li>
+      <%= button_link_to Spree.t(:back_to_static_pages_list), spree.admin_pages_path, icon: 'arrow-left' %>
+    </li>
+  <% end %>
 <% end %>
 
-<% content_for :page_actions do %>
-  <li><%= button_link_to Spree.t(:back_to_static_pages_list), spree.admin_pages_url %></li>
-<% end %>
+<div data-hook='admin_page_edit_form_header'>
+  <%= render partial: 'spree/shared/error_messages', locals: { target: @page } %>
+</div>
 
-<%= render "spree/shared/error_messages", :target => @page %>
+<%= form_for [:admin, @page], as: :page, url: admin_page_path(@page) do |f| %>
+  <fieldset class='no-border-top'>
+    <%= render partial: 'form', locals: { f: f } %>
 
-<%= form_for [:admin, @page] do |f| %>
-  <fieldset class="no-border-top">
-    <%= render :partial => 'form', :locals => { :f => f } %>
-    <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+    <div class='clear'></div>
+
+    <div data-hook='admin_page_edit_form_buttons'>
+      <% if can?(:update, @page) %>
+        <%= render partial: 'spree/admin/shared/edit_resource_links' %>
+      <% end %>
+    </div>
   </fieldset>
 <% end %>

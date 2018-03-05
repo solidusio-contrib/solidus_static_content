@@ -1,51 +1,90 @@
-<% content_for :page_actions do %>
-  <li><%= button_link_to Spree.t("static_content.new_page"), new_object_url, id: 'admin_new_page' %></li>
+<% if SolidusSupport.solidus_gem_version > Gem::Version.new('1.3.x') %>
+  <%= render 'spree/admin/shared/pages_tabs' %>
+
+  <% admin_breadcrumb(Spree.t('settings')) %>
+  <% admin_breadcrumb(plural_resource_name(Spree::Page)) %>
+
+  <% content_for :page_actions do %>
+    <li>
+      <%= link_to Spree.t('static_content.new_page'), new_object_url, id: 'admin_new_page', class: 'btn btn-primary' %>
+    </li>
+  <% end if can?(:create, Spree::Page) %>
+<% else %>
+ <%= render 'spree/admin/shared/configuration_menu' %>
+
+  <% content_for :page_actions do %>
+    <% if can?(:create, Spree::Page) %>
+      <li>
+        <%= button_link_to Spree.t(:new_page), new_object_url, icon: 'plus' %>
+      </li>
+    <% end %>
+  <% end %>
 <% end %>
 
 <% content_for :page_title do %>
-   <%= Spree.t("static_content.static_pages") %>
+  <%= Spree.t('static_content.static_pages') %>
 <% end %>
 
 <% if @pages.any? %>
-<table class="index responsive" id="listing_pages" data-hook>
-  <colgroup>
-    <col style="width: 40%">
-    <col style="width: 35%">
-    <col style="width: 10%">
-    <col style="width: 15%">
-  </colgroup>
-  <thead>
-    <tr data-hook="admin_pages_index_headers">
-      <th><%= Spree::Page.human_attribute_name(:title) %></th>
-      <th><%= Spree.t("static_content.link") %></th>
-      <th><%= Spree::Page.human_attribute_name(:visible) %></th>
-      <th data-hook="admin_pages_index_header_actions" class="actions"></th>
-    </tr>
-  </thead>
+  <table class='index sortable responsive' id='listing_pages' data-hook data-sortable-link='<%= update_positions_admin_pages_url %>'>
+    <colgroup>
+      <col style='width: 10%'>
+      <col style='width: 40%'>
+      <col style='width: 35%'>
+      <col style='width: 10%'>
+      <col style='width: 15%'>
+    </colgroup>
 
-  <tbody>
-    <% @pages.each do |page| %>
-      <tr data-hook="admin_pages_index_rows" class="<%= cycle('odd', 'even') %>" id="<%= dom_id page %>">
-        <td>
-          <%= page.title %>
-        </td>
-        <td>
-          <%= link_to page.link, page.link, :target => '_blank' %>
-        </td>
-        <td class="align-center">
-          <%= content_tag(:i, '', :class => 'icon-ok green') if page.visible %>
-        </td>
-        <td class="actions" data-hook="admin_pages_index_row_actions">
-          <%= link_to_edit page, :no_text => true %>
-          <%= link_to_delete page, :no_text => true %>
-        </td>
+    <thead>
+      <tr data-hook='admin_pages_index_headers'>
+        <th></th>
+        <th><%= Spree::Page.human_attribute_name(:title) %></th>
+        <th><%= Spree.t('static_content.link') %></th>
+        <th><%= Spree::Page.human_attribute_name(:visible) %></th>
+        <th data-hook='admin_pages_index_header_actions' class='actions'></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody class='ui-sortable'>
+      <% @pages.each do |page| %>
+        <tr data-hook='admin_pages_index_rows' class="<%= cycle('odd', 'even') %>' id='<%= dom_id page %>">
+          <td>
+            <% if can?(:update_positions, Spree::StockLocation) %>
+              <span class='handle ui-sortable-handle'></span>
+            <% end %>
+          </td>
+          <td>
+            <%= page.title %>
+          </td>
+          <td>
+            <%= link_to page.link, page.link, target: '_blank' %>
+          </td>
+          <td>
+            <span class='pill pill-<%= page.visible ? 'active' : 'inactive' %>'>
+              <%= Spree.t(page.visible? ? :active : :inactive) %>
+            </span>
+          </td>
+          <td class='actions' data-hook='admin_pages_index_row_actions'>
+            <%= link_to_edit page, no_text: true %>
+            <%= link_to_delete page, no_text: true %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% else %>
-  <div class="alpha twelve columns no-objects-found">
-    <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/page')) %>,
-    <%= link_to Spree.t(:add_one), spree.new_admin_page_path %>!
-  </div>
+  <% if SolidusSupport.solidus_gem_version > Gem::Version.new('1.3.x') %>
+    <div class='no-objects-found'>
+       <%= render 'spree/admin/shared/no_objects_found',
+                   resource: Spree::Page,
+                   new_resource_url: new_object_url %>
+    </div>
+  <% else %>
+    <div class='alpha twelve columns no-objects-found'>
+      <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/page')) %>
+      <% if can?(:create, Spree::Page) %>
+        <%= link_to Spree.t('static_content.add_one'), spree.new_admin_page_path %>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
