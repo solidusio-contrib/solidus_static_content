@@ -30,6 +30,7 @@ es:
     back_to_static_pages_list: "Volver a la lista de páginas estáticas"
     page: Página
     pages: Páginas
+    stores: Tiendas
     static_content:
       static_pages: "Páginas estáticas"
       new_page: "Nueva página"
