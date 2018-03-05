@@ -30,6 +30,7 @@ en:
     back_to_static_pages_list: "Back to static pages list"
     page: Page
     pages: Pages
+    stores: Stores
     static_content:
       static_pages: Static pages
       new_page: New page
