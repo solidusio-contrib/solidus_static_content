@@ -18,6 +18,8 @@ RSpec.feature 'Admin Static Content', js: true do
 
       click_link 'New page'
 
+      expect(page).to have_text 'New page'
+
       fill_in 'page_title', with: 'Contact us'
       fill_in 'page_slug', with: 'contact-us'
       fill_in 'page_body', with: 'hello..'

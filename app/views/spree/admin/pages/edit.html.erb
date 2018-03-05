@@ -1,13 +1,25 @@
+<%= render 'spree/admin/shared/pages_tabs' %>
+
+<% admin_breadcrumb(t('spree.settings')) %>
 <% admin_breadcrumb(link_to plural_resource_name(Spree::Page), spree.admin_pages_path) %>
-<% admin_breadcrumb(t('spree.static_content.new_page')) %>
+<% admin_breadcrumb(@page.title) %>
 
 <% content_for :page_actions do %><% end %>
 
-<%= render "spree/shared/error_messages", :target => @page %>
+<div data-hook='admin_page_edit_form_header'>
+  <%= render "spree/shared/error_messages", :target => @page %>
+</div>
 
-<%= form_for [:admin, @page] do |f| %>
+<%= form_for [:admin, @page], as: :page, url: admin_page_path(@page) do |f| %>
   <fieldset class="no-border-top">
     <%= render :partial => 'form', :locals => { :f => f } %>
-    <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+
+    <div class='clear'></div>
+
+    <div data-hook='admin_page_edit_form_buttons'>
+      <% if can?(:update, @page) %>
+        <%= render partial: 'spree/admin/shared/edit_resource_links' %>
+      <% end %>
+    </div>
   </fieldset>
 <% end %>

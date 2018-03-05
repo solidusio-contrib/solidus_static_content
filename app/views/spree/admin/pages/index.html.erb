@@ -1,3 +1,5 @@
+<%= render 'spree/admin/shared/pages_tabs' %>
+
 <% content_for :page_actions do %>
   <% if can?(:create, Spree::Page) %>
     <li>
@@ -6,18 +8,26 @@
   <% end %>
 <% end %>
 
+<% admin_breadcrumb(t('spree.settings')) %>
 <% admin_breadcrumb(plural_resource_name(Spree::Page)) %>
 
+<% content_for :page_title do %>
+  <%= I18n.t("spree.static_content.static_pages") %>
+<% end %>
+
 <% if @pages.any? %>
-  <table class="index responsive" id="listing_pages" data-hook>
+  <table class="index responsive sortable" id="listing_pages" data-hook data-sortable-link="<%= update_positions_admin_pages_url %>">
     <colgroup>
+      <col style="width: 10%">
       <col style="width: 40%">
       <col style="width: 35%">
       <col style="width: 10%">
       <col style="width: 15%">
     </colgroup>
+
     <thead>
       <tr data-hook="admin_pages_index_headers">
+        <th></th>
         <th><%= Spree::Page.human_attribute_name(:title) %></th>
         <th><%= I18n.t("spree.static_content.link") %></th>
         <th><%= Spree::Page.human_attribute_name(:visible) %></th>
@@ -25,12 +35,21 @@
       </tr>
     </thead>
 
-    <tbody>
+    <tbody class="ui-sortable">
       <% @pages.each do |page| %>
         <tr data-hook="admin_pages_index_rows" class="<%= cycle('odd', 'even') %>" id="<%= dom_id page %>">
+          <td>
+            <% if can?(:update_positions, Spree::StockLocation) %>
+              <span class='handle ui-sortable-handle'></span>
+            <% end %>
+          </td>
           <td><%= page.title %></td>
           <td><%= link_to page.link, page.link, :target => '_blank' %></td>
-          <td><%= content_tag(:i, '', class: 'icon-ok green') if page.visible %></td>
+          <td>
+            <span class='pill pill-<%= page.visible ? 'active' : 'inactive' %>'>
+              <%= Spree.t(page.visible? ? :active : :inactive) %>
+            </span>
+          </td>
           <td data-hook="admin_pages_index_row_actions" class="actions" >
             <% if can?(:update, page) %>
               <%= link_to_edit page, no_text: true %>
