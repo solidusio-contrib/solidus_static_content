@@ -1,23 +1,23 @@
-<% if SolidusSupport.solidus_gem_version > Gem::Version.new('1.3.x') %>
-  <%= render 'spree/admin/shared/pages_tabs' %>
-
-  <% admin_breadcrumb(Spree.t('settings')) %>
-  <% admin_breadcrumb(link_to plural_resource_name(Spree::Page), spree.admin_pages_path) %>
-  <% admin_breadcrumb(Spree.t('static_content.new_page')) %>
-
-  <% content_for :page_actions do %>
-  <% end %>
-<% else %>
+<% if SolidusSupport.solidus_gem_version < Gem::Version.new('1.4.x') %>
   <%= render partial: 'spree/admin/shared/configuration_menu' %>
 
   <% content_for :page_title do %>
-    <%= Spree.t('static_content.new_page') %>
+    <%= Spree.t(:new_page) %>
   <% end %>
 
   <% content_for :page_actions do %>
     <li>
-      <%= button_link_to Spree.t(:back_to_static_pages_list), spree.admin_pages_path, icon: 'arrow-left' %>
+      <%= button_link_to Spree.t(:back_to_pages), spree.admin_pages_path, icon: 'arrow-left' %>
     </li>
+  <% end %>
+<% else %>
+  <%= render 'spree/admin/shared/pages_tabs' %>
+
+  <% admin_breadcrumb(Spree.t(:settings)) %>
+  <% admin_breadcrumb(link_to plural_resource_name(Spree::Page), spree.admin_pages_path) %>
+  <% admin_breadcrumb(Spree.t(:new_page)) %>
+
+  <% content_for :page_actions do %>
   <% end %>
 <% end %>
 

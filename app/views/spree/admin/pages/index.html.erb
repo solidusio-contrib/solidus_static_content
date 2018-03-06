@@ -1,16 +1,5 @@
-<% if SolidusSupport.solidus_gem_version > Gem::Version.new('1.3.x') %>
-  <%= render 'spree/admin/shared/pages_tabs' %>
-
-  <% admin_breadcrumb(Spree.t('settings')) %>
-  <% admin_breadcrumb(plural_resource_name(Spree::Page)) %>
-
-  <% content_for :page_actions do %>
-    <li>
-      <%= link_to Spree.t('static_content.new_page'), new_object_url, id: 'admin_new_page', class: 'btn btn-primary' %>
-    </li>
-  <% end if can?(:create, Spree::Page) %>
-<% else %>
- <%= render 'spree/admin/shared/configuration_menu' %>
+<% if SolidusSupport.solidus_gem_version < Gem::Version.new('1.4.x') %>
+  <%= render 'spree/admin/shared/configuration_menu' %>
 
   <% content_for :page_actions do %>
     <% if can?(:create, Spree::Page) %>
@@ -19,10 +8,21 @@
       </li>
     <% end %>
   <% end %>
+<% else %>
+  <%= render 'spree/admin/shared/pages_tabs' %>
+
+  <% admin_breadcrumb(Spree.t(:settings)) %>
+  <% admin_breadcrumb(plural_resource_name(Spree::Page)) %>
+
+  <% content_for :page_actions do %>
+    <li>
+      <%= link_to Spree.t(:new_page), new_object_url, id: 'admin_new_page', class: 'btn btn-primary' %>
+    </li>
+  <% end if can?(:create, Spree::Page) %>
 <% end %>
 
 <% content_for :page_title do %>
-  <%= Spree.t('static_content.static_pages') %>
+  <%= Spree.t(:static_pages) %>
 <% end %>
 
 <% if @pages.any? %>
@@ -39,7 +39,7 @@
       <tr data-hook='admin_pages_index_headers'>
         <th></th>
         <th><%= Spree::Page.human_attribute_name(:title) %></th>
-        <th><%= Spree.t('static_content.link') %></th>
+        <th><%= Spree.t(:link) %></th>
         <th><%= Spree::Page.human_attribute_name(:visible) %></th>
         <th data-hook='admin_pages_index_header_actions' class='actions'></th>
       </tr>
@@ -83,7 +83,7 @@
     <div class='alpha twelve columns no-objects-found'>
       <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/page')) %>
       <% if can?(:create, Spree::Page) %>
-        <%= link_to Spree.t('static_content.add_one'), spree.new_admin_page_path %>
+        <%= link_to Spree.t(:add_one), spree.new_admin_page_path %>
       <% end %>
     </div>
   <% end %>
