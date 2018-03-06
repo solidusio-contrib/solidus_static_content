@@ -1,10 +1,14 @@
-<%= render 'spree/admin/shared/pages_tabs' %>
+<%= render partial: 'spree/admin/shared/configuration_menu' %>
 
-<% admin_breadcrumb(t('spree.settings')) %>
-<% admin_breadcrumb(link_to plural_resource_name(Spree::Page), spree.admin_pages_path) %>
-<% admin_breadcrumb(t('spree.static_content.new_page')) %>
+<% content_for :page_title do %>
+  <%= I18n.t("spree.new_page") %>
+<% end %>
 
-<% content_for :page_actions do %><% end %>
+<% content_for :page_actions do %>
+  <li>
+    <%= button_link_to I18n.t("spree.back_to_pages"), spree.admin_pages_path, icon: "arrow-left" %>
+  </li>
+<% end %>
 
 <%= render "spree/shared/error_messages", :target => @page %>
 

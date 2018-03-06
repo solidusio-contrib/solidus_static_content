@@ -27,11 +27,13 @@ ru:
   spree:
     page: "Страница"
     pages: "Страницы"
-    static_content:
-      static_pages: "Статические страницы"
-      new_page: "Новая страница"
-      editing_page: "Редактирование страницы"
-      link: "Ссылка"
+    stores: "магазины"
+    new_page: "Новая страница"
+    static_pages: "Статические страницы"
+    new_page: "Новая страница"
+    editing_page: "Редактирование страницы"
+    link: "Ссылка"
+    add_one: "Создай"
     back_to_static_pages_list: "Назад к списку страниц"
     admin:
       tab:

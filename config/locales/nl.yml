@@ -30,8 +30,10 @@ nl:
     back_to_static_pages_list: "Terug naar statische pagina's"
     page: Page
     pages: "Statische pagina's"
-    static_content:
-      editing_page: "Pagina bewerken"
-      link: Link
-      new_page: "Nieuwe pagina"
-      static_pages: "Statische pagina's"
+    stores: Winkel
+    editing_page: "Pagina bewerken"
+    link: Link
+    new_page: "Nieuwe pagina"
+    static_pages: "Statische pagina's"
+    add_one: "Creëer er een"
+

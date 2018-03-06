@@ -30,8 +30,10 @@ sv:
     back_to_static_pages_list: "Tillbaka till listan med sidor"
     page: Sida
     pages: Sidor
-    static_content:
-      editing_page: "Editera sidan"
-      link: Länk
-      new_page: "Ny sida"
-      static_pages: "Statiska sidor"
+    stores: Butiker
+    new_page: "Ny sida"
+    editing_page: "Editera sidan"
+    link: Länk
+    new_page: "Ny sida"
+    static_pages: "Statiska sidor"
+    add_one: "Skapa en"
