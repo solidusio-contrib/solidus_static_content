@@ -24,15 +24,17 @@ ro:
   spree:
     page: Pagină
     pages: Pagine
-    static_content:
-      static_pages: Pagini statice
-      static_pages_desc: Descrierea paginilor statice
-      new_page: Pagină nouă
-      editing_page: Editarea paginii
-      confirm_delete: Sunteți siguri că doriți să ștergeți această pagină?
-      link: Link
-      meta_title: Titlu meta
-      page_navigation_title: Pagini
+    stores: Magazine
+    new_page: Pagină nouă
+    static_pages: Pagini statice
+    static_pages_desc: Descrierea paginilor statice
+    new_page: Pagină nouă
+    editing_page: Editarea paginii
+    confirm_delete: Sunteți siguri că doriți să ștergeți această pagină?
+    link: Link
+    meta_title: Titlu meta
+    page_navigation_title: Pagini
+    add_one: Creeaza una
     back_to_static_pages_list: Înapoi la lista de pagini
     admin:
       tab:

@@ -32,8 +32,9 @@ pl:
     back_to_static_pages_list: "Powrót do listy stron statycznych"
     page: Strona
     pages: "Strony statyczne"
-    static_content:
-      editing_page: "Edycja strony"
-      link: Odnośnik
-      new_page: "Nowa strona"
-      static_pages: "Strony statyczne"
+    stores: Sklepy
+    editing_page: "Edycja strony"
+    link: Odnośnik
+    new_page: "Nowa strona"
+    static_pages: "Strony statyczne"
+    add_one: "Stworzyć jeden"

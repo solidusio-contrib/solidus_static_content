@@ -30,8 +30,10 @@ de:
     back_to_static_pages_list: "Zurück zu den statischen Seiten Liste"
     page: Seite
     pages: Seiten
-    static_content:
-      static_pages: Statische Seiten
-      new_page: Neue Seite
-      editing_page: Seite bearbeiten
-      link: Link
+    stores: Shops
+    static_pages: Statische Seiten
+    new_page: Neue Seite
+    editing_page: Seite bearbeiten
+    link: Link
+    add_one: Erstelle einen
+
