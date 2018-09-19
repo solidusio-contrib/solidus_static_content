@@ -2,7 +2,7 @@ module SpreeStaticContent
   class Engine < Rails::Engine
     require 'spree/core'
     isolate_namespace Spree
-    engine_name 'spree_static_content'
+    engine_name 'solidus_static_content'
 
     def self.menu_item
       @menu_item ||= Spree::Backend::Config.class::MenuItem.new(
