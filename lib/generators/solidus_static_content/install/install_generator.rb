@@ -8,7 +8,7 @@ module SolidusStaticContent
       end
 
       def add_migrations
-        run 'bundle exec rake railties:install:migrations FROM=solidus_static_content'
+        run 'bundle exec rake railties:install:migrations FROM=spree_static_content'
       end
 
       def run_migrations
