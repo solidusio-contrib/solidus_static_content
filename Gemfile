@@ -10,7 +10,18 @@ else
   gem "rails", "~> 4.2.7"
 end
 
-gem 'pg', '~> 0.21'
-gem 'mysql2', '~> 0.4.10'
+group :test do
+  if branch < "v2.5"
+    gem 'factory_bot', '4.10.0'
+  else
+    gem 'factory_bot', '> 4.10.0'
+  end
+end
+
+if ENV['DB'] == 'mysql'
+  gem 'mysql2', '~> 0.4.10'
+else
+  gem 'pg', '~> 0.21'
+end
 
 gemspec
