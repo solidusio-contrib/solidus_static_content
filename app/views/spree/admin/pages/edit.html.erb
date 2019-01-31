@@ -1,11 +1,11 @@
 <%= render 'spree/admin/shared/configuration_menu' %>
 
 <% content_for :page_title do %>
-   <%= Spree.t("static_content.static_pages") %> <i class="icon-arrow-right"></i> <%= Spree.t("static_content.editing_page") %> "<%= @page.title%>"
+   <%= I18n.t("spree.static_content.static_pages") %> <i class="icon-arrow-right"></i> <%= I18n.t("spree.static_content.editing_page") %> "<%= @page.title%>"
 <% end %>
 
 <% content_for :page_actions do %>
-  <li><%= button_link_to Spree.t(:back_to_static_pages_list), spree.admin_pages_url %></li>
+  <li><%= link_to I18n.t("spree.back_to_static_pages_list"), spree.admin_pages_url %></li>
 <% end %>
 
 <%= render "spree/shared/error_messages", :target => @page %>

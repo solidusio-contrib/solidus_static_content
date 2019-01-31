@@ -1,9 +1,9 @@
 <% content_for :page_actions do %>
-  <li><%= button_link_to Spree.t("static_content.new_page"), new_object_url, id: 'admin_new_page' %></li>
+  <li><%= link_to I18n.t("spree.static_content.new_page"), new_object_url, id: 'admin_new_page' %></li>
 <% end %>
 
 <% content_for :page_title do %>
-   <%= Spree.t("static_content.static_pages") %>
+   <%= I18n.t("spree.static_content.static_pages") %>
 <% end %>
 
 <% if @pages.any? %>
@@ -17,7 +17,7 @@
   <thead>
     <tr data-hook="admin_pages_index_headers">
       <th><%= Spree::Page.human_attribute_name(:title) %></th>
-      <th><%= Spree.t("static_content.link") %></th>
+      <th><%= I18n.t("spree.static_content.link") %></th>
       <th><%= Spree::Page.human_attribute_name(:visible) %></th>
       <th data-hook="admin_pages_index_header_actions" class="actions"></th>
     </tr>
@@ -45,7 +45,7 @@
 </table>
 <% else %>
   <div class="alpha twelve columns no-objects-found">
-    <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/page')) %>,
-    <%= link_to Spree.t(:add_one), spree.new_admin_page_path %>!
+    <%= I18n.t("spree.no_resource_found", resource: I18n.t(:other, scope: 'activerecord.models.spree/page')) %>,
+    <%= link_to I18n.t("spree.add_one"), spree.new_admin_page_path %>!
   </div>
 <% end %>
