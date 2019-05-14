@@ -1,7 +1,8 @@
 class Spree::Page < ActiveRecord::Base
   default_scope -> { order("position ASC") }
 
-  has_and_belongs_to_many :stores, :join_table => 'spree_pages_stores'
+  has_many :page_stores, dependent: :destroy
+  has_many :stores, through: :page_stores
 
   validates_presence_of :title
   validates_presence_of [:slug, :body], :if => :not_using_foreign_link?
@@ -15,7 +16,7 @@ class Spree::Page < ActiveRecord::Base
   scope :footer_links, -> { where(:show_in_footer => true).visible }
   scope :sidebar_links, -> { where(:show_in_sidebar => true).visible }
 
-  scope :by_store, lambda { |store| joins(:stores).where("spree_pages_stores.store_id = ?", store) }
+  scope :by_store, lambda { |store| joins(:stores).where("spree_page_stores.store_id = ?", store) }
 
   before_save :update_positions_and_slug
 
