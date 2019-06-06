@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :page, class: Spree::Page do
     sequence(:title) { |n| "Page #{n}" }

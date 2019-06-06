@@ -10,10 +10,9 @@ RSpec.feature 'Admin Static Content', js: true do
     end
 
     scenario 'can create new page' do
-      expect(page).to have_text /No Pages found, Add One!/i
+      expect(page).to have_text /No Pages found/i
 
       click_link 'New page'
-      expect(page).to have_text 'Static pages'
 
       fill_in 'page_title', with: 'Contact us'
       fill_in 'page_slug', with: 'contact-us'

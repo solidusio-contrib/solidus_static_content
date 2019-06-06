@@ -1,10 +1,8 @@
-before_script:
-  - "bundle exec rake test_app"
-script: "bundle exec rspec spec"
-sudo: false
+dist: trusty
+cache: bundler
 language: ruby
 rvm:
-  - 2.3.1
+  - 2.4.6
 env:
   matrix:
     - SOLIDUS_BRANCH=v2.4 DB=postgres
