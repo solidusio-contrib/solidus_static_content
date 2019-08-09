@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-rails',  '~> 3.5'
   s.add_development_dependency 'sqlite3', '~> 1.3.6'
   s.add_development_dependency 'poltergeist', '~> 1.10'
+  s.add_development_dependency 'selenium-webdriver'
   s.add_development_dependency 'simplecov', '~> 0.12'
   s.add_development_dependency 'pry-rails'
   s.add_development_dependency 'test-unit'

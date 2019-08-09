@@ -1,6 +1,6 @@
 # Solidus Static Content
 
-[![Build Status](https://travis-ci.org/solidusio-contrib/solidus_static_content.svg)](https://travis-ci.org/solidusio-contrib/solidus_static_content)
+[![CircleCI](https://circleci.com/gh/solidusio-contrib/solidus_static_content.svg?style=svg)](https://circleci.com/gh/solidusio-contrib/solidus_static_content)
 
 A fork of the [Spree extension][1] for compatibility with [Solidus][7].
 
