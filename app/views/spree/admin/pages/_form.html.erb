@@ -73,11 +73,8 @@
 
   <div class="col-12">
     <%= f.field_container :stores do %>
-      <%= f.label :stores, I18n.t('spree.stores')%><br />
-      <% Spree::Store.all.each do |store| %>
-        <%= check_box_tag "product[store_ids][]", store.id, @page.stores.include?(store), id: "product_store_id_#{store.id}" %>
-        <%= label_tag "page_store_id_#{store.id}", store.name %>
-      <% end %>
+      <%= f.label :store_ids, plural_resource_name(Spree::Store) %>
+      <%= f.collection_select :store_ids, Spree::Store.all, :id, :name, {}, multiple: true, class: "select2 fullwidth" %>
     <% end %>
   </div>
 
