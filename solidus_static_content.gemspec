@@ -1,35 +1,48 @@
-Gem::Specification.new do |s|
-  s.platform    = Gem::Platform::RUBY
-  s.name        = 'solidus_static_content'
-  s.version     = '1.0.0'
-  s.summary     = 'Extention to manage the static pages for your Spree shop.'
-  s.description = s.summary
-  s.required_ruby_version = '>= 1.9.3'
 
-  s.authors      = [%q{Peter Berkenbosch}, %q{Roman Smirnov}]
-  s.email        = 'peter@pero-ict.nl'
-  s.homepage     = 'http://spreecommerce.com/extensions/139-static-content'
-  s.license      = %q{BSD-3}
+lib = File.expand_path("../lib", __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'solidus_static_content/version'
 
-  s.files        = `git ls-files`.split("\n")
-  s.test_files   = `git ls-files -- spec/*`.split("\n")
-  s.require_path = 'lib'
-  s.requirements << 'none'
+Gem::Specification.new do |spec|
+  spec.name          = "solidus_static_content"
+  spec.version       = SolidusStaticContent::VERSION
+  spec.authors       = ["Peter Berkenbosch", "Roman Smirnov"]
+  spec.email         = "peter@pero-ict.nl"
 
-  s.add_dependency 'solidus', ['>= 2.3', '< 3']
-  s.add_dependency "solidus_support"
-  s.add_dependency 'deface', '~> 1.0'
+  spec.summary       = %q{Extension to manage the static pages for your Solidus store.}
+  spec.description   = %q{Manage the static pages of your Solidus store or replace existing pages with a static version}
+  spec.homepage      = "https://github.com/solidusio-contrib/solidus_static_content#readme"
+  spec.license       = "BSD-3"
 
-  s.add_development_dependency 'capybara', '~> 2.7'
-  s.add_development_dependency 'capybara-screenshot'
-  s.add_development_dependency 'factory_bot', '~> 4.7'
-  s.add_development_dependency 'ffaker'
-  s.add_development_dependency 'database_cleaner', '~> 1.5'
-  s.add_development_dependency 'rspec-rails',  '~> 4.0.0.beta2'
-  s.add_development_dependency 'sqlite3'
-  s.add_development_dependency 'poltergeist', '~> 1.10'
-  s.add_development_dependency 'selenium-webdriver'
-  s.add_development_dependency 'simplecov', '~> 0.12'
-  s.add_development_dependency 'pry-rails'
-  s.add_development_dependency 'test-unit'
+  if spec.respond_to?(:metadata)
+    spec.metadata["homepage_uri"] = spec.homepage
+    spec.metadata["source_code_uri"] = spec.homepage
+    spec.metadata["changelog_uri"] = "https://github.com/solidusio-contrib/solidus_static_content/releases"
+  end
+
+  # Specify which files should be added to the gem when it is released.
+  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
+  spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
+    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  end
+  spec.bindir        = "exe"
+  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.require_paths = ["lib"]
+
+  spec.add_dependency 'solidus', ['>= 2.3', '< 3']
+  spec.add_dependency "solidus_support"
+  spec.add_dependency 'deface', '~> 1.0'
+
+  spec.add_development_dependency 'capybara', '~> 2.7'
+  spec.add_development_dependency 'capybara-screenshot'
+  spec.add_development_dependency 'factory_bot', '~> 4.7'
+  spec.add_development_dependency 'ffaker'
+  spec.add_development_dependency 'database_cleaner', '~> 1.5'
+  spec.add_development_dependency 'rspec-rails',  '~> 4.0.0.beta2'
+  spec.add_development_dependency 'sqlite3'
+  spec.add_development_dependency 'poltergeist', '~> 1.10'
+  spec.add_development_dependency 'selenium-webdriver'
+  spec.add_development_dependency 'simplecov', '~> 0.12'
+  spec.add_development_dependency 'pry-rails'
+  spec.add_development_dependency 'test-unit'
 end
