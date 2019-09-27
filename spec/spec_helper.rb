@@ -15,3 +15,6 @@ require "solidus_support/extension/feature_helper"
 RSpec.configure do |config|
   config.include Spree::TestingSupport::ControllerRequests, type: :controller
 end
+
+# A fix for https://github.com/rspec/rspec-rails/issues/1897
+Capybara.server = :puma, { Silent: true }
