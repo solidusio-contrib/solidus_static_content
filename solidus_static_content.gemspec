@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
 
   s.authors      = [%q{Peter Berkenbosch}, %q{Roman Smirnov}]
   s.email        = 'peter@pero-ict.nl'
-  s.homepage     = 'http://spreecommerce.com/extensions/139-static-content'
+  s.homepage     = 'https://github.com/solidusio-contrib/solidus_static_content#readme'
   s.license      = %q{BSD-3}
 
   s.files        = `git ls-files`.split("\n")
