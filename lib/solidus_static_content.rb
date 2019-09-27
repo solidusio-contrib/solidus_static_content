@@ -4,6 +4,7 @@ require 'solidus_frontend'
 require 'solidus_backend'
 require 'deface'
 require 'spree_static_content/engine'
+require 'solidus_static_content/version'
 
 module StaticPage
   def self.remove_spree_mount_point(path)
