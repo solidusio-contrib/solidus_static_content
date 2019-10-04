@@ -46,9 +46,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'puma'
   spec.add_development_dependency 'rails-controller-testing'
   spec.add_development_dependency 'rspec-rails', '~> 4.0.0.beta2'
+  spec.add_development_dependency 'rspec_junit_formatter'
   spec.add_development_dependency 'selenium-webdriver'
   spec.add_development_dependency 'simplecov', '~> 0.12'
   spec.add_development_dependency 'solidus_auth_devise'
-  spec.add_development_dependency 'sqlite3'
   spec.add_development_dependency 'sprockets', '< 4'
+  spec.add_development_dependency 'sqlite3'
 end
