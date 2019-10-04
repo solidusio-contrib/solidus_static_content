@@ -8,6 +8,7 @@ require "rspec/rails"
 
 Dir[File.join(File.dirname(__FILE__), "/support/**/*.rb")].each { |file| require file }
 
+require "factory_bot"
 require "spree_static_content/factories"
 require "spree/testing_support/controller_requests"
 require "solidus_support/extension/feature_helper"
