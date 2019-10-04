@@ -30,19 +30,19 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency 'solidus', ['>= 2.3', '< 3']
-  spec.add_dependency "solidus_support"
+  spec.add_dependency 'solidus_support'
   spec.add_dependency 'deface', '~> 1.0'
 
   spec.add_development_dependency 'capybara', '~> 2.7'
   spec.add_development_dependency 'capybara-screenshot'
+  spec.add_development_dependency 'database_cleaner', '~> 1.5'
   spec.add_development_dependency 'factory_bot', '~> 5.1'
   spec.add_development_dependency 'ffaker'
-  spec.add_development_dependency 'database_cleaner', '~> 1.5'
-  spec.add_development_dependency 'rspec-rails',  '~> 4.0.0.beta2'
-  spec.add_development_dependency 'sqlite3'
   spec.add_development_dependency 'poltergeist', '~> 1.10'
+  spec.add_development_dependency 'pry-rails'
+  spec.add_development_dependency 'rspec-rails', '~> 4.0.0.beta2'
   spec.add_development_dependency 'selenium-webdriver'
   spec.add_development_dependency 'simplecov', '~> 0.12'
-  spec.add_development_dependency 'pry-rails'
+  spec.add_development_dependency 'sqlite3'
   spec.add_development_dependency 'test-unit'
 end
