@@ -8,6 +8,7 @@ require "rspec/rails"
 
 Dir[File.join(File.dirname(__FILE__), "/support/**/*.rb")].each { |file| require file }
 
+require "factory_bot"
 require "spree_static_content/factories"
 require "spree/testing_support/controller_requests"
 require "solidus_support/extension/feature_helper"
@@ -15,3 +16,6 @@ require "solidus_support/extension/feature_helper"
 RSpec.configure do |config|
   config.include Spree::TestingSupport::ControllerRequests, type: :controller
 end
+
+# A fix for https://github.com/rspec/rspec-rails/issues/1897
+Capybara.server = :puma, { Silent: true }
