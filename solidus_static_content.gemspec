@@ -33,7 +33,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "solidus_support"
   spec.add_dependency 'deface', '~> 1.0'
 
-  spec.add_development_dependency 'capybara', '~> 2.7'
+  spec.add_development_dependency 'capybara', '~> 3.29'
   spec.add_development_dependency 'capybara-screenshot'
   spec.add_development_dependency 'factory_bot', '~> 5.1'
   spec.add_development_dependency 'ffaker'
