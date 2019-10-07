@@ -40,7 +40,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'factory_bot', '~> 5.1'
   spec.add_development_dependency 'ffaker'
   spec.add_development_dependency 'mysql2', '~> 0.5.2'
-  spec.add_development_dependency 'pg', '~> 0.21'
+  spec.add_development_dependency 'pg', '~> 1.1'
   spec.add_development_dependency 'poltergeist', '~> 1.10'
   spec.add_development_dependency 'pry-rails'
   spec.add_development_dependency 'puma'
