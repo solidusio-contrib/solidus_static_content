@@ -42,5 +42,14 @@ describe Spree::Page do
       page = create(:page, slug: 'hello')
       expect(page.slug).to eq '/hello'
     end
+
+    context 'when a title is present' do
+      it 'is generated from the title' do
+        page = create(:page, slug: nil, title: 'Hello World!')
+
+        expect(page).to be_valid
+        expect(page.slug).to eq('/hello-world')
+      end
+    end
   end
 end
