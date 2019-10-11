@@ -4,6 +4,10 @@ class Spree::StaticContentController < Spree::StoreController
 
   def show
     @page = Spree::Page.by_store(current_store).visible.find_by_slug!(request.path)
+
+    # Assign static_content to let solidus recognize it as the current
+    # controller resource, this is used by meta tags and in other places.
+    @static_content = @page
   end
 
   private
