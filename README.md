@@ -15,14 +15,14 @@ Good, clean content management of pages for Spree. You can use this to:
 Add to your `Gemfile`:
 
 ```ruby
-gem 'solidus_static_content', github: 'solidusio-contrib/solidus_static_content'
+gem 'solidus_static_content'
 ```
 
 Run:
 
 ```
 $ bundle install
-$ bundle exec rails g solidus_static_content:install
+$ bin/rails generate solidus_static_content:install
 ```
 
 That's all!
@@ -88,9 +88,9 @@ Starting point:
 
 * Fork the repo
 * Clone your repo
-* Run `bundle install`
+* Run `bin/setup`
 * Make your changes
-* Ensure specs pass by running `bundle exec rake`
+* Ensure specs pass by running `bin/rake`
 * Submit your pull request
 
 Copyright (c) 2014 [Peter Berkenbosch][4] and [contributors][5], released under the [New BSD License][6]
