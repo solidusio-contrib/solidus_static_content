@@ -4,12 +4,18 @@ module SpreeStaticContent
     isolate_namespace Spree
     engine_name 'spree_static_content'
 
-    def self.activate_menu_items
-       Spree::Backend::Config.menu_items << Spree::Backend::Config.class::MenuItem.new(
+    def self.menu_item
+      @menu_item ||= Spree::Backend::Config.class::MenuItem.new(
         [:pages],
         'file-text',
         condition: -> { can?(:admin, Spree::Page) },
       )
+    end
+
+    def self.activate_menu_items
+      return if Spree::Backend::Config.menu_items.include?(menu_item)
+
+      Spree::Backend::Config.menu_items << menu_item
     end
 
     def self.activate_overrides
