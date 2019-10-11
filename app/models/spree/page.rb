@@ -6,6 +6,7 @@ class Spree::Page < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of [:slug, :body], :if => :not_using_foreign_link?
   validates_presence_of :layout, :if => :render_layout_as_partial?
+  validates_presence_of :stores
 
   validates :slug, :uniqueness => true, :if => :not_using_foreign_link?
   validates :foreign_link, :uniqueness => true, :allow_blank => true
