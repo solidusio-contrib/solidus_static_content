@@ -22,7 +22,7 @@ Run:
 
 ```
 $ bundle install
-$ bundle exec rails g solidus_static_content:install
+$ bin/rails generate solidus_static_content:install
 ```
 
 That's all!
