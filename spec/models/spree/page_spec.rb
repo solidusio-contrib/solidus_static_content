@@ -22,7 +22,6 @@ describe Spree::Page do
   end
 
   context "pages in stores" do
-
     before(:each) do
       @store = create(:store)
       @page = create(:page, :stores => [@store])
@@ -34,7 +33,6 @@ describe Spree::Page do
       expect(pages_by_store).to include(@page)
       expect(pages_by_store).to_not include(@page2)
     end
-
   end
 
   describe '#slug' do
@@ -50,6 +48,14 @@ describe Spree::Page do
         expect(page).to be_valid
         expect(page.slug).to eq('/hello-world')
       end
+    end
+  end
+
+  describe '.meta_title' do
+    it 'falls back to title' do
+      page = build(:page, title: "Foo Bar", meta_title: nil)
+
+      expect(page.meta_title).to eq("Foo Bar")
     end
   end
 end
