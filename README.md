@@ -15,7 +15,7 @@ Good, clean content management of pages for Spree. You can use this to:
 Add to your `Gemfile`:
 
 ```ruby
-gem 'solidus_static_content', github: 'solidusio-contrib/solidus_static_content'
+gem 'solidus_static_content'
 ```
 
 Run:
