@@ -88,9 +88,9 @@ Starting point:
 
 * Fork the repo
 * Clone your repo
-* Run `bundle install`
+* Run `bin/setup`
 * Make your changes
-* Ensure specs pass by running `bundle exec rake`
+* Ensure specs pass by running `bin/rake`
 * Submit your pull request
 
 Copyright (c) 2014 [Peter Berkenbosch][4] and [contributors][5], released under the [New BSD License][6]

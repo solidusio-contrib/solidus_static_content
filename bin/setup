@@ -3,6 +3,8 @@ set -euo pipefail
 IFS=$'\n\t'
 set -vx
 
-bundle install
-
-# Do any other automated setup that you need to do here
+gem install bundler --conservative
+bundle update
+bin/rake clobber
+bin/rake spec/dummy
+bin/rails railties:install:migrations db:migrate db:seed
