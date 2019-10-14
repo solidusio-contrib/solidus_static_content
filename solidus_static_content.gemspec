@@ -50,6 +50,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'selenium-webdriver'
   spec.add_development_dependency 'simplecov', '~> 0.12'
   spec.add_development_dependency 'solidus_auth_devise'
-  spec.add_development_dependency 'sprockets', '< 4'
+  spec.add_development_dependency 'sprockets', '< 5'
   spec.add_development_dependency 'sqlite3'
 end
