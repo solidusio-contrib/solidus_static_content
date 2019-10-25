@@ -33,6 +33,10 @@ class Spree::Page < ActiveRecord::Base
     foreign_link.blank? ? slug : foreign_link
   end
 
+  def meta_title
+    super.presence || title
+  end
+
 private
 
   def update_positions_and_slug
