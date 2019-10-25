@@ -12,5 +12,7 @@ FactoryBot.define do
         "http://example.com"
       end
     end
+
+    stores { [build(:store)] }
   end
 end
