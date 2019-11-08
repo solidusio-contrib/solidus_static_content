@@ -30,8 +30,9 @@ et:
     back_to_static_pages_list: "Tagasi staatiliste lehtede nimekiri"
     page: Lehekülg
     pages: Leheküljed
-    static_content:
-      static_pages: Leheküljed
-      new_page: Uus lehekülg
-      editing_page: Muudan lehekülge
-      link: Link
+    stores: Kauplustes
+    static_pages: Leheküljed
+    new_page: Uus lehekülg
+    editing_page: Muudan lehekülge
+    link: Link
+    add_one: Loo see

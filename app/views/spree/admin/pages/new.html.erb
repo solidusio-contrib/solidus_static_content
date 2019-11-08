@@ -1,13 +1,27 @@
-<% admin_breadcrumb(link_to plural_resource_name(Spree::Page), spree.admin_pages_path) %>
-<% admin_breadcrumb(t('spree.static_content.new_page')) %>
+<%= render partial: 'spree/admin/shared/configuration_menu' %>
 
-<% content_for :page_actions do %><% end %>
+<% content_for :page_title do %>
+  <%= I18n.t("spree.new_page") %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li>
+    <%= button_link_to I18n.t("spree.back_to_pages"), spree.admin_pages_path, icon: "arrow-left" %>
+  </li>
+<% end %>
 
 <%= render "spree/shared/error_messages", :target => @page %>
 
-<%= form_for [:admin, @page] do |f| %>
-  <fieldset class="no-border-top">
-    <%= render :partial => 'form', :locals => { :f => f } %>
-    <%= render :partial => 'spree/admin/shared/new_resource_links' %>
-  </fieldset>
-<% end %>
+<div data-hook='admin_page_new_form'>
+  <%= form_for [:admin, @page] do |f| %>
+    <fieldset class='no-border-top'>
+      <%= render partial: 'form', locals: { f: f } %>
+
+      <div class='clear'></div>
+
+      <div data-hook='admin_page_new_form_buttons'>
+        <%= render partial: 'spree/admin/shared/new_resource_links' %>
+      </div>
+    </fieldset>
+  <% end %>
+</div>

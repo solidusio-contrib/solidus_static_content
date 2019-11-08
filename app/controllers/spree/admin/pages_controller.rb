@@ -9,4 +9,8 @@ class Spree::Admin::PagesController < Spree::Admin::ResourceController
       end
     end
   end
+
+  def collection
+    super.ordered_by_position
+  end
 end

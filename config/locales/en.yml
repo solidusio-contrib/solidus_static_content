@@ -28,11 +28,12 @@ en:
     admin:
       tab:
         pages: Pages
-    back_to_static_pages_list: "Back to static pages list"
+    back_to_pages: "Back to static pages list"
     page: Page
     pages: Pages
-    static_content:
-      static_pages: Static pages
-      new_page: New page
-      editing_page: Editing page
-      link: Link
+    stores: Stores
+    static_pages: Static pages
+    new_page: New page
+    editing_page: Editing page
+    link: Link
+    add_one: Create One
