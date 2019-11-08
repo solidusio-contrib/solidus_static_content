@@ -1,14 +1,5 @@
 require 'spec_helper'
 
-describe StaticPage do
-  context '.remove_spree_mount_point' do
-    specify do
-      path = '/hello'
-      expect(subject.remove_spree_mount_point(path)).to eq 'hello'
-    end
-  end
-end
-
 describe Spree::StaticPage do
   subject { described_class }
 
