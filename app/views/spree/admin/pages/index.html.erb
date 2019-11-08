@@ -3,7 +3,7 @@
 <% content_for :page_actions do %>
   <% if can?(:create, Spree::Page) %>
     <li>
-      <%= link_to I18n.t("spree.new_page"), new_object_url, icon: 'plus' %>
+      <%= link_to t("spree.new_page"), new_object_url, icon: 'plus' %>
     </li>
   <% end %>
 <% end %>
@@ -12,7 +12,7 @@
 <% admin_breadcrumb(plural_resource_name(Spree::Page)) %>
 
 <% content_for :page_title do %>
-  <%= I18n.t("spree.static_content.static_pages") %>
+  <%= t("spree.static_content.static_pages") %>
 <% end %>
 
 <% if @pages.any? %>
@@ -29,7 +29,7 @@
       <tr data-hook="admin_pages_index_headers">
         <th></th>
         <th><%= Spree::Page.human_attribute_name(:title) %></th>
-        <th><%= I18n.t("spree.link") %></th>
+        <th><%= t("spree.link") %></th>
         <th><%= Spree::Page.human_attribute_name(:visible) %></th>
         <th data-hook="admin_pages_index_header_actions" class="actions"></th>
       </tr>
@@ -47,7 +47,7 @@
           <td><%= link_to page.link, page.link, :target => '_blank' %></td>
           <td>
             <span class='pill pill-<%= page.visible ? 'active' : 'inactive' %>'>
-              <%= Spree.t(page.visible? ? :active : :inactive) %>
+              <%= t("spree.#{page.visible? ? :active : :inactive}") %>
             </span>
           </td>
           <td data-hook="admin_pages_index_row_actions" class="actions" >
