@@ -8,6 +8,8 @@ class Spree::StaticContentController < Spree::StoreController
     # Assign static_content to let solidus recognize it as the current
     # controller resource, this is used by meta tags and in other places.
     @static_content = @page
+
+    @taxonomies = Spree::Taxonomy.includes(root: :children)
   end
 
   private
