@@ -7,3 +7,4 @@ spec/dummy/
 tmp
 coverage
 .bundle
+spec/examples.txt

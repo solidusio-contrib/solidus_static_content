@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 unless File.exist? 'spec/dummy/bin/rails'
-  system "bin/rake", "spec/dummy" or begin
+  system("bin/rake", "spec/dummy") || begin
     warn "Automatic creation of the dummy app failed"
     exit 1
   end

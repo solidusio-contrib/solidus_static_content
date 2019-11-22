@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UpdateSpreePagePosition < SolidusSupport::Migration[4.2]
   def up
     if column_exists?(:spree_pages, :position)

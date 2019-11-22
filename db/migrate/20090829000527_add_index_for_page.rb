@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddIndexForPage < SolidusSupport::Migration[4.2]
   def self.up
     add_index(:spree_pages, :slug)
@@ -7,4 +9,3 @@ class AddIndexForPage < SolidusSupport::Migration[4.2]
     remove_index(:spree_pages, :slug)
   end
 end
-

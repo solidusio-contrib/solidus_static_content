@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rake/clean'
 require 'bundler/gem_tasks'
 require 'rspec/core/rake_task'
@@ -26,4 +28,4 @@ RSpec::Core::RakeTask.new(:specs, [] => FileList[test_app_path]) do |t|
   end
 end
 
-task :default => :specs
+task default: :specs

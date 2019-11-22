@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Spree::StaticPage do
   subject { described_class }
 
-  context '.matches?' do
+  describe '.matches?' do
     it 'is true when valid page' do
       page = create(:page, slug: 'hello', visible: true)
       request = instance_double(Rack::Request, path_info: page.slug)

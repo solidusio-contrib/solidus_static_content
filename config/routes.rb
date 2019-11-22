@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Spree::Core::Engine.routes.draw do
   namespace :admin do
     resources :pages do
@@ -8,6 +10,6 @@ Spree::Core::Engine.routes.draw do
   end
 
   constraints(Spree::StaticPage) do
-    get '/(*path)', :to => 'static_content#show', :as => 'static'
+    get '/(*path)', to: 'static_content#show', as: 'static'
   end
 end
