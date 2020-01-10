@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  # Always take the latest version of the Orb, this allows us to
+  # Always take the latest version of the orb, this allows us to
   # run specs against Solidus supported versions only without the need
   # to change this configuration every time a Solidus version is released
   # or goes EOL.
