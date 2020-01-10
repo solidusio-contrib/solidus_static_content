@@ -1,0 +1,5 @@
+bump:
+  recurse: false
+  file: 'lib/solidus_static_content/version.rb'
+  message: Bump SolidusStaticContent to %{version}
+  branch: true
