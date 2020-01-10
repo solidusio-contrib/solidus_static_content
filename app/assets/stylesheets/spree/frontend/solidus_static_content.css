@@ -1,0 +1,11 @@
+/*
+Placeholder manifest file.
+the installer will append this file to the app vendored assets here: 'vendor/assets/stylesheets/spree/frontend/all.css'
+*/
+/* Sidebar */
+nav#pages .pages-root {
+  text-transform: uppercase;
+  border-bottom: 1px solid rgb(217, 217, 219);
+  margin-bottom: 5px;
+  font-size: 14px;
+}
