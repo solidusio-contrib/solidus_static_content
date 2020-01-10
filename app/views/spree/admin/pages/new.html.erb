@@ -1,4 +1,6 @@
-<%= render partial: 'spree/admin/shared/configuration_menu' %>
+<%= render 'spree/admin/shared/pages_tabs' %>
+
+<% admin_breadcrumb(link_to plural_resource_name(Spree::Page), spree.admin_pages_path) %>
 
 <% content_for :page_title do %>
   <%= t("spree.new_page") %>
@@ -6,7 +8,7 @@
 
 <% content_for :page_actions do %>
   <li>
-    <%= button_link_to t("spree.back_to_pages"), spree.admin_pages_path, icon: "arrow-left" %>
+    <%= button_link_to t("spree.back_to_static_pages_list"), spree.admin_pages_path, icon: "arrow-left" %>
   </li>
 <% end %>
 
