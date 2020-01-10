@@ -61,10 +61,8 @@ RSpec.feature 'Admin Static Content', js: true do
 
     scenario 'can be deleted' do
       within_row(1) do
-        click_icon :trash
+        accept_confirm { click_icon :trash }
       end
-
-      page.driver.browser.switch_to.alert.accept unless Capybara.javascript_driver == :poltergeist
 
       expect(page).not_to have_text static_page.title
     end
