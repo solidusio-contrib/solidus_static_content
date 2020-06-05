@@ -8,7 +8,7 @@ RSpec.describe SolidusStaticContent::Engine do
       expect {
         described_class.activate_menu_items
         described_class.activate_menu_items
-      }.not_to change {Spree::Backend::Config.menu_items.size}
+      }.not_to change(Spree::Backend::Config.menu_items, :size)
     end
   end
 end
