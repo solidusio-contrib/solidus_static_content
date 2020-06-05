@@ -1,8 +1,20 @@
+# frozen_string_literal: true
+
+require 'spree/core'
+require 'solidus_static_content'
+
 module SolidusStaticContent
   class Engine < Rails::Engine
-    require 'spree/core'
-    isolate_namespace Spree
+    include SolidusSupport::EngineExtensions
+
+    isolate_namespace ::Spree
+
     engine_name 'solidus_static_content'
+
+    # use rspec for tests
+    config.generators do |g|
+      g.test_framework :rspec
+    end
 
     def self.menu_item
       @menu_item ||= Spree::Backend::Config.class::MenuItem.new(
@@ -18,13 +30,6 @@ module SolidusStaticContent
       Spree::Backend::Config.menu_items << menu_item
     end
 
-    def self.activate_overrides
-      root.join("app/overrides").glob("*.rb").each do |path|
-        require_dependency(path.to_s)
-      end
-    end
-
-    config.to_prepare &method(:activate_menu_items)
-    config.to_prepare &method(:activate_overrides)
+    config.to_prepare(&method(:activate_menu_items))
   end
 end
