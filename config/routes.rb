@@ -9,7 +9,7 @@ Spree::Core::Engine.routes.draw do
     end
   end
 
-  constraints(Spree::StaticPage) do
+  constraints(SolidusStaticContent::RouteMatcher) do
     get '/(*path)', :to => 'static_content#show', :as => 'static'
   end
 end

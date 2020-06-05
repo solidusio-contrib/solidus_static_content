@@ -6,7 +6,3 @@ require 'deface'
 require 'spree_static_content/engine'
 require 'solidus_static_content/version'
 require 'solidus_static_content/route_matcher'
-
-# @deprecated Here for legacy purposes
-Spree::StaticPage = SolidusStaticContent::RouteMatcher
-Spree.deprecate_constant :StaticPage
