@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Spree::StaticPage do
+describe SolidusStaticContent::RouteMatcher do
   subject { described_class }
 
   context '.matches?' do
