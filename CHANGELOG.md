@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/solidusio-contrib/solidus_static_content/tree/HEAD)
+## [v2.0.0](https://github.com/solidusio-contrib/solidus_static_content/tree/v2.0.0) (2020-06-05)
 
-[Full Changelog](https://github.com/solidusio-contrib/solidus_static_content/compare/v1.0.0...HEAD)
+[Full Changelog](https://github.com/solidusio-contrib/solidus_static_content/compare/v1.0.0...v2.0.0)
 
 **Breaking changes:**
 
@@ -44,6 +44,8 @@
 
 **Merged pull requests:**
 
+- Update the readme with the solidus\_dev\_support template [\#71](https://github.com/solidusio-contrib/solidus_static_content/pull/71) ([aldesantis](https://github.com/aldesantis))
+- Update extension template with solidus\_dev\_support [\#70](https://github.com/solidusio-contrib/solidus_static_content/pull/70) ([aldesantis](https://github.com/aldesantis))
 - Adds Spree::PermissionSets for Pages [\#64](https://github.com/solidusio-contrib/solidus_static_content/pull/64) ([memotoro](https://github.com/memotoro))
 - Relax solidus\_support dependency [\#63](https://github.com/solidusio-contrib/solidus_static_content/pull/63) ([kennyadsl](https://github.com/kennyadsl))
 - Regenerate ext with solidus\_dev\_support [\#60](https://github.com/solidusio-contrib/solidus_static_content/pull/60) ([elia](https://github.com/elia))
