@@ -55,6 +55,7 @@ RSpec.feature 'Admin Static Content', js: true do
       fill_in 'page_title', with: 'Contact'
       fill_in 'page_slug', with: 'contact'
 
+      scroll_to find_button('Update')
       click_button 'Update'
       expect(page).to have_text 'successfully updated!'
     end
