@@ -24,11 +24,10 @@ en:
         one: Page
         other: Pages
   spree:
-    stores: Stores
     admin:
       tab:
         pages: Pages
-    back_to_pages: "Back to static pages list"
+    back_to_static_pages_list: "Back to static pages list"
     page: Page
     pages: Pages
     stores: Stores
