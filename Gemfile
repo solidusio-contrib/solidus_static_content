@@ -3,14 +3,17 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-branch = ENV.fetch('SOLIDUS_BRANCH', 'master')
-solidus_git, solidus_frontend_git = if (branch == 'master') || (branch >= 'v3.2')
-                                      %w[solidusio/solidus solidusio/solidus_frontend]
-                                    else
-                                      %w[solidusio/solidus] * 2
-                                    end
-gem 'solidus', github: solidus_git, branch: branch
-gem 'solidus_frontend', github: solidus_frontend_git, branch: branch
+branch = ENV.fetch('SOLIDUS_BRANCH', 'main')
+gem 'solidus', github: 'solidusio/solidus', branch: branch
+
+# The solidus_frontend gem has been pulled out since v3.2
+if branch >= 'v3.2'
+  gem 'solidus_frontend'
+elsif branch == 'main'
+  gem 'solidus_frontend', github: 'solidusio/solidus_frontend', branch: branch
+else
+  gem 'solidus_frontend', github: 'solidusio/solidus', branch: branch
+end
 
 # Needed to help Bundler figure out how to resolve dependencies,
 # otherwise it takes forever to resolve them.
@@ -20,7 +23,7 @@ gem 'rails', '>0.a'
 # Provides basic authentication functionality for testing parts of your engine
 gem 'solidus_auth_devise'
 
-case ENV['DB']
+case ENV.fetch('DB', nil)
 when 'mysql'
   gem 'mysql2'
 when 'postgresql'
@@ -28,6 +31,20 @@ when 'postgresql'
 else
   gem 'sqlite3'
 end
+
+group :development, :test do
+  gem 'factory_bot', '> 4.10.0'
+  gem 'pry-rails'
+end
+
+group :test do
+  gem 'rails-controller-testing'
+end
+
+# While we still support Ruby < 3 we need to workaround a limitation in
+# the 'async' gem that relies on the latest ruby, since RubyGems doesn't
+# resolve gems based on the required ruby version.
+gem 'async', '< 3' if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('3')
 
 gemspec
 
