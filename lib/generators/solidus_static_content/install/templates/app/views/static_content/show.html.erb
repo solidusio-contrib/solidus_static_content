@@ -1,0 +1,28 @@
+<% if @page.layout.present? and @page.render_layout_as_partial? %>
+  <%= render partial: @page.layout %>
+<% else %>
+  <% content_for :head do -%>
+    <%- if @page.meta_title.present? -%>
+      <meta name="title" content="<%= @page.meta_title %>">
+    <%- else -%>
+      <meta name="title" content="<%= @page.title %>">
+    <%- end -%>
+    <meta name="keywords" content="<%= @page.meta_keywords %>">
+    <meta name="description" content="<%= @page.meta_description %>">
+  <% end -%>
+
+  <% content_for :sidebar do %>
+    <% if (defined?(@products) && @products) && (defined?(@taxon) && @taxon) %>
+      <%= render partial: 'spree/shared/filters' %>
+    <% elsif defined?(@taxonomies) && @taxonomies %>
+      <%= render partial: 'spree/shared/taxonomies' %>
+    <% end %>
+  <% end %>
+
+  <div class="container" id="page_content">
+    <h1 class="wrapper mt-4 font-serif text-h3 lg:text-h2"><%= @page.title %></h1>
+    <div class="pt-4 pb-4">
+      <%= raw @page.body %>
+    </div>
+  </div>
+<% end %>
