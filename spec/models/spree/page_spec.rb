@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Spree::Page do
@@ -9,7 +11,7 @@ describe Spree::Page do
     end
   end
 
-  context '.link' do
+  describe '.link' do
     it 'return slug if foreign_link blank' do
       page = create(:page, slug: 'hello')
       expect(page.link).to eq page.slug
@@ -22,16 +24,16 @@ describe Spree::Page do
   end
 
   context "pages in stores" do
-    before(:each) do
+    before do
       @store = create(:store)
-      @page = create(:page, :stores => [@store])
+      @page = create(:page, stores: [@store])
       @page2 = create(:page)
     end
 
-    it 'should correctly find pages by store' do
-      pages_by_store = Spree::Page.by_store(@store)
+    it 'correctlies find pages by store' do
+      pages_by_store = described_class.by_store(@store)
       expect(pages_by_store).to include(@page)
-      expect(pages_by_store).to_not include(@page2)
+      expect(pages_by_store).not_to include(@page2)
     end
   end
 

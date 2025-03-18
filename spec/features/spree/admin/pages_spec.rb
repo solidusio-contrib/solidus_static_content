@@ -1,19 +1,21 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-RSpec.feature 'Admin Static Content', js: true do
+RSpec.describe 'Admin Static Content', js: true do
   stub_authorization!
 
-  background do
+  before do
     create :store, default: true
   end
 
   context 'when no page exists' do
-    background do
+    before do
       visit spree.admin_path
       click_link 'Pages'
     end
 
-    scenario 'can create new page' do
+    it 'can create new page' do
       expect(page).to have_text /No Pages found/i
 
       click_link 'New page'
@@ -32,7 +34,7 @@ RSpec.feature 'Admin Static Content', js: true do
       check 'page_show_in_header'
       check 'page_show_in_footer'
 
-      expect(find('#page_visible')).to be_checked
+      expect(find_by_id('page_visible')).to be_checked
 
       click_button 'Create'
       expect(page).to have_text 'successfully created!'
@@ -40,14 +42,14 @@ RSpec.feature 'Admin Static Content', js: true do
   end
 
   context 'when page exists' do
-    given!(:static_page) { create(:page) }
+    let!(:static_page) { create(:page) }
 
-    background do
+    before do
       visit spree.admin_path
       click_link 'Pages'
     end
 
-    scenario 'can be updated' do
+    it 'can be updated' do
       within_row(1) do
         click_icon :edit
       end
@@ -60,7 +62,7 @@ RSpec.feature 'Admin Static Content', js: true do
       expect(page).to have_text 'successfully updated!'
     end
 
-    scenario 'can be deleted' do
+    it 'can be deleted' do
       within_row(1) do
         accept_confirm { click_icon :trash }
       end

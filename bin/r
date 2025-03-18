@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 warn %{
 DEPRECATION: bin/r has been replaced by bin/rails-engine, please use that

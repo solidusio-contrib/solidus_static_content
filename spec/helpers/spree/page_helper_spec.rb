@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe Spree::PagesHelper, type: :helper do
-  context '.render_snippet' do
+  describe '.render_snippet' do
     it 'return body when page exists' do
       page = create(:page)
       expect(render_snippet(page.slug)).to eq page.body

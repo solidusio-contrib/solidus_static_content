@@ -1,11 +1,15 @@
-module SolidusStaticContent::RouteMatcher
-  EXCLUDED_PATHS = /^\/+(admin|account|cart|checkout|content|login|pg\/|orders|products|s\/|session|signup|shipments|states|t\/|tax_categories|user)+/
+# frozen_string_literal: true
 
-  def self.matches?(request)
-    path = request.path_info
+module SolidusStaticContent
+  module RouteMatcher
+    EXCLUDED_PATHS = %r{^/+(admin|account|cart|checkout|content|login|pg/|orders|products|s/|session|signup|shipments|states|t/|tax_categories|user)+}
 
-    return false if EXCLUDED_PATHS.match? path
+    def self.matches?(request)
+      path = request.path_info
 
-    Spree::Page.visible.where(slug: path).exists?
+      return false if EXCLUDED_PATHS.match? path
+
+      Spree::Page.visible.where(slug: path).exists?
+    end
   end
 end
