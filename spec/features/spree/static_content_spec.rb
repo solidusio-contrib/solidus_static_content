@@ -29,10 +29,10 @@ feature 'Static Content Page', js: true do
       expect(page).to have_text 'Root Page Test'
     end
 
-    scenario 'is limited within its own constraints', js: false do
-      create(:taxon, permalink: 'test', name: 'The Taxon')
-      create(:page, slug: '/t/test', title: 'The Page', stores: [store])
-      visit '/t/test'
+    scenario 'is limited within its own constraints' do
+      taxon = create(:taxon, permalink: 'test', name: 'The Taxon')
+      create(:page, slug: "/t/#{taxon.permalink}", title: 'The Page', stores: [store])
+      visit "/t/#{taxon.permalink}"
       expect(page).to have_content('The Taxon')
       expect(page).not_to have_content('The Page')
     end
