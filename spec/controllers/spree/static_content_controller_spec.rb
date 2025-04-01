@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Spree::StaticContentController, type: :controller do
   let!(:store) { create(:store, default: true) }
 
-  context '#show' do
+  describe '#show' do
     it 'accepts path as root' do
       page = create(:page, slug: '/', stores: [store])
       request.path = page.slug

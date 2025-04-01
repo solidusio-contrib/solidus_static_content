@@ -15,15 +15,27 @@ Good, clean content management of pages for Solidus. You can use it to:
 
 Add solidus_static_content to your Gemfile:
 
-```ruby
-gem 'solidus_static_content'
-```
+### Starter Frontend
 
 Bundle your dependencies and run the installation generator:
 
 ```shell
 bundle
-bundle exec rails g solidus_static_content:install
+bin/rails generate solidus_static_content:install --frontend=starter
+```
+
+Please, be aware that the installation only works with the default
+implementation of the starter frontend. Any customization to the files that
+will be modified by the installer might break the installation procedure.
+If that happens, try to adapt the installed code on top of the customizations
+of the store.
+
+### Legacy Frontend
+
+If you are using the legacy `solidus_frontend` gem, please run this command instead:
+
+```shell
+bin/rails generate solidus_static_content:install
 ```
 
 ## Usage

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'spree/core'
-require 'solidus_static_content'
+require 'solidus_core'
+require 'solidus_support'
 
 module SolidusStaticContent
   class Engine < Rails::Engine
@@ -16,20 +16,18 @@ module SolidusStaticContent
       g.test_framework :rspec
     end
 
-    def self.menu_item
-      @menu_item ||= Spree::Backend::Config.class::MenuItem.new(
-        [:pages],
-        'file-text',
-        condition: -> { can?(:admin, Spree::Page) },
-      )
+    initializer 'solidus_subscriptions.configure_backend' do
+      next unless ::Spree::Backend::Config.respond_to?(:menu_items)
+
+      ::Spree::Backend::Config.configure do |config|
+        config.menu_items << config.class::MenuItem.new(
+          [:pages],
+          'file-text',
+          url: :admin_pages_path,
+          condition: -> { can?(:admin, Spree::Page) },
+          match_path: '/pages'
+        )
+      end
     end
-
-    def self.activate_menu_items
-      return if Spree::Backend::Config.menu_items.include?(menu_item)
-
-      Spree::Backend::Config.menu_items << menu_item
-    end
-
-    config.to_prepare(&method(:activate_menu_items))
   end
 end

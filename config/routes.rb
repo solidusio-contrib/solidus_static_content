@@ -9,7 +9,10 @@ Spree::Core::Engine.routes.draw do
     end
   end
 
-  constraints(SolidusStaticContent::RouteMatcher) do
-    get '/(*path)', :to => 'static_content#show', :as => 'static'
+  # Check if the layout is not the default layout to avoid conflicts with the starter_frontend routes
+  if Spree::Config.layout != 'layouts/storefront'
+    constraints(SolidusStaticContent::RouteMatcher) do
+      get '/(*path)', to: 'static_content#show', as: 'static'
+    end
   end
 end
