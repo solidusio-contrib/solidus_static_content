@@ -1,6 +1,6 @@
 # Solidus Static Content
 
-[![CircleCI](https://circleci.com/gh/solidusio-contrib/solidus_static_content.svg?style=svg)](https://circleci.com/gh/solidusio-contrib/solidus_static_content)
+[![Test](https://github.com/solidusio-contrib/solidus_static_content/actions/workflows/test.yml/badge.svg)](https://github.com/solidusio-contrib/solidus_static_content/actions/workflows/test.yml)
 
 A fork of the [Spree extension](https://github.com/spree-contrib/spree_static_content) for
 compatibility with [Solidus](https://solidus.io).
@@ -96,7 +96,7 @@ When testing your application's integration with this extension you may use its 
 Simply add this require statement to your spec_helper:
 
 ```ruby
-require 'solidus_static_content/factories'
+require 'solidus_static_content/testing_support/factories'
 ```
 
 ### Running the sandbox
