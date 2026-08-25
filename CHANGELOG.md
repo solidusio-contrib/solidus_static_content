@@ -1,5 +1,35 @@
 # Changelog
 
+## [v2.1.0](https://github.com/solidusio-contrib/solidus_static_content/tree/v2.1.0) (2026-08-25)
+
+[Full Changelog](https://github.com/solidusio-contrib/solidus_static_content/compare/v2.0.0...v2.1.0)
+
+**Closed issues:**
+
+- Not compatible with Solidus 4 [\#87](https://github.com/solidusio-contrib/solidus_static_content/issues/87)
+- Not compatible with Ruby 3.1.2 [\#85](https://github.com/solidusio-contrib/solidus_static_content/issues/85)
+- Support for Ruby 3.0 [\#83](https://github.com/solidusio-contrib/solidus_static_content/issues/83)
+- Dependabot can't resolve your Ruby dependency files [\#78](https://github.com/solidusio-contrib/solidus_static_content/issues/78)
+- Prepare Solidus Static Content for Solidus 3.0 [\#75](https://github.com/solidusio-contrib/solidus_static_content/issues/75)
+- Dependabot can't resolve your Ruby dependency files [\#74](https://github.com/solidusio-contrib/solidus_static_content/issues/74)
+- Dependabot can't resolve your Ruby dependency files [\#73](https://github.com/solidusio-contrib/solidus_static_content/issues/73)
+- wrong translation key [\#72](https://github.com/solidusio-contrib/solidus_static_content/issues/72)
+- Version conflict on newest version \(deface compatibility\) [\#65](https://github.com/solidusio-contrib/solidus_static_content/issues/65)
+
+**Merged pull requests:**
+
+- Add privilege and category method to permission sets [\#93](https://github.com/solidusio-contrib/solidus_static_content/pull/93) ([sascha-karnatz](https://github.com/sascha-karnatz))
+- Move to Standardrb [\#92](https://github.com/solidusio-contrib/solidus_static_content/pull/92) ([sascha-karnatz](https://github.com/sascha-karnatz))
+- Run tests on GitHub [\#91](https://github.com/solidusio-contrib/solidus_static_content/pull/91) ([sascha-karnatz](https://github.com/sascha-karnatz))
+- Add updated Menu Item for Solidus 4.2 [\#89](https://github.com/solidusio-contrib/solidus_static_content/pull/89) ([sascha-karnatz](https://github.com/sascha-karnatz))
+- Restore solidus\_static\_content on Solidus 4.0 [\#88](https://github.com/solidusio-contrib/solidus_static_content/pull/88) ([JustShah](https://github.com/JustShah))
+- Update to use forked solidus\_frontend when needed [\#84](https://github.com/solidusio-contrib/solidus_static_content/pull/84) ([waiting-for-dev](https://github.com/waiting-for-dev))
+- English Translation Key Fix  [\#82](https://github.com/solidusio-contrib/solidus_static_content/pull/82) ([QuintinAdam](https://github.com/QuintinAdam))
+- Updates Gemspec to allow Ruby 3 [\#81](https://github.com/solidusio-contrib/solidus_static_content/pull/81) ([QuintinAdam](https://github.com/QuintinAdam))
+- Upgrade to GitHub-native Dependabot [\#80](https://github.com/solidusio-contrib/solidus_static_content/pull/80) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Solidus version update to v3.0.0 [\#79](https://github.com/solidusio-contrib/solidus_static_content/pull/79) ([webhive](https://github.com/webhive))
+- Scroll Update button into view before clicking [\#76](https://github.com/solidusio-contrib/solidus_static_content/pull/76) ([jarednorman](https://github.com/jarednorman))
+
 ## [v2.0.0](https://github.com/solidusio-contrib/solidus_static_content/tree/v2.0.0) (2020-06-05)
 
 [Full Changelog](https://github.com/solidusio-contrib/solidus_static_content/compare/v1.0.0...v2.0.0)
@@ -36,7 +66,7 @@
 **Closed issues:**
 
 - Couldn't find Spree::Page [\#33](https://github.com/solidusio-contrib/solidus_static_content/issues/33)
-- Spree::PagesHelper doesn't have `render\_snippet` method [\#25](https://github.com/solidusio-contrib/solidus_static_content/issues/25)
+- Spree::PagesHelper doesn't have `render_snippet` method [\#25](https://github.com/solidusio-contrib/solidus_static_content/issues/25)
 - admin menu item 'Pages' still appears after logout [\#9](https://github.com/solidusio-contrib/solidus_static_content/issues/9)
 - Problem with solidus 2.1.0.beta1 and solidus\_static\_content [\#5](https://github.com/solidusio-contrib/solidus_static_content/issues/5)
 - DB Migration not working [\#4](https://github.com/solidusio-contrib/solidus_static_content/issues/4)
